@@ -1,19 +1,19 @@
 #include <stdio.h>                                                                     
-  2 #include <unistd.h>
-  3 #include <stdlib.h>
-  4 
-  5 int main(){
-  6   printf("parent pid:%d\n",getpid());
-  7   pid_t pid = fork();
-  8   if(pid < 0){
-  9     return -1;
- 10   }
- 11   else if(pid == 0){
- 12     printf("child![%d]\n",pid);
- 13     exit(0);
- 14   }
- 15   else{
- 16     printf("parent![%d]\n",getpid());
- 17   }
- 18   return 0;
- 19 }
+#include <unistd.h>
+#include <stdlib.h>
+
+int main(){
+  printf("parent pid:%d\n",getpid());
+  pid_t pid = fork();
+  if(pid < 0){
+    return -1;
+  }
+  else if(pid == 0){
+    printf("child![%d]\n",pid);
+    exit(0);
+  }
+  else{
+    printf("parent![%d]\n",getpid());
+  }
+  return 0;
+}
