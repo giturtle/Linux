@@ -25,16 +25,7 @@ void *thr_boss(void * arg) {
 	    pthread_mutex_lock(&mutex);
 	    //若面没有卖出去，则等待
 	    while(have_noodle == 1) {
-        //等待
-        //int pthread_cond_timedwait(pthread_cond_t *cond,
-        //	    pthread_mutex_t *mutex,
-        //	    struct timespec *abstime);
-        //	cond:	条件变量
-        //	mutex：	互斥锁
-        //	abstime：   限时等待时长
-        //	限时进行等待，超时后则返回
-        //pthread_cond_wait(pthread_cond_t *cond,pthread_mutex_t *mutex);
-        //死等
+
         //pthread_cond_wait 中集合了解锁后挂起的操作（原子操作）
         //有可能还没来得及挂起就已经有人唤醒--白唤醒--导致死等
         pthread_cond_wait(&boss, &mutex);
