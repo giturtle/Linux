@@ -2,6 +2,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 
+
 int main(){
   printf("parent pid:%d\n",getpid());
   pid_t pid = fork();
